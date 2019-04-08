@@ -3,7 +3,7 @@ var router = express.Router();
 let Quote = require('../models/quote.model');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.send(`<h1>Quote API</h1>`);
 });
 
