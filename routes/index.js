@@ -7,12 +7,14 @@ router.get('/', function(req, res) {
   res.send(`<h1>Quote API</h1>`);
 });
 
-router.get('/api/quote', (req, res) => {
-    Quote.findOneRandom((err, quote) => {
-        if(!err)
-            res.status(200).json(quote);
-        else
-            res.status(500).json({err: err});
-    })
-})
+// GET quote
+router.get('/quote', (req, res) => {
+  let result = Quote.getQuote();
+  console.log("Result la: "+result);
+  result.then(quote => {
+    res.json(result.quote);
+  }).catch(err => {
+    res.send({"Err": err})
+  })
+});
 module.exports = router;

@@ -6,6 +6,15 @@ let quoteSchema = new mongoose.Schema({
     author: String
 });
 
-quoteSchema.plugin(random);
+class quoteClass {
+  
+  static async getQuote(){
+    let rs = await quoteModel.findOneRandom();
+  }
+}
 
-module.exports = mongoose.model('Quote', quoteSchema);
+quoteSchema.loadClass(quoteClass);
+quoteSchema.plugin(random);
+let modelName = 'Quote';
+let quoteModel = mongoose.model(modelName, quoteSchema);
+module.exports = quoteModel;
