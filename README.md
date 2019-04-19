@@ -1,5 +1,4 @@
-# quotes-api
-Quotes API
+# Quotes API
 
 Trích hay tiếng Việt
 
