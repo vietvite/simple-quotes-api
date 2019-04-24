@@ -1,6 +1,10 @@
 {
   "name": "quotes-api-express",
   "version": "0.0.0",
+  "author": {
+    "name": "Van Viet",
+    "email": "vanviet8367@gmail.com"
+  },
   "private": true,
   "scripts": {
     "start": "node ./bin/www",

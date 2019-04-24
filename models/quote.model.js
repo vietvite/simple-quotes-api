@@ -5,16 +5,31 @@ let quoteSchema = new mongoose.Schema({
     quote: String,
     author: String
 });
+quoteSchema.plugin(random);
 
 class quoteClass {
-  
-  static async getQuote(){
-    let rs = await quoteModel.findOneRandom();
+  constructor(quote) {
+    this.quote = quote;
+  }
+  getQuote() {
+    return new Promise((resolve, reject) => {
+      quoteModel.findOneRandom((err, quote) => {
+        if(!err){
+          resolve(quote);
+        } else {
+          reject(err);
+        }
+      })
+    });
+  };
+  async addQuote() {
+    let newQuote = new quoteModel(this.quote);
+    return await newQuote.save();
   }
 }
 
-quoteSchema.loadClass(quoteClass);
-quoteSchema.plugin(random);
 let modelName = 'Quote';
 let quoteModel = mongoose.model(modelName, quoteSchema);
-module.exports = quoteModel;
+
+module.exports = quoteClass;
+module.exports.QuoteModel = quoteModel;

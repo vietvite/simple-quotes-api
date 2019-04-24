@@ -7,9 +7,13 @@ class Database {
         this._connect();
     }
     _connect(){
-        mongoose.connect( db_url, {useNewUrlParser: true} )
-            .then(() => console.log("Database connected!"))
-            .catch((err) => console.log("Database connection error: " + err));
+        mongoose.connect( db_url, {
+            useNewUrlParser: true,
+            reconnectTries : Number.MAX_VALUE,
+            autoReconnect : true
+        })
+        .then(() => console.log("Database connected!"))
+        .catch((err) => console.log("Database connection error: " + err));
     }
 }
 module.exports = new Database;
