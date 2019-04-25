@@ -14,11 +14,7 @@ class quoteClass {
   getQuote() {
     return new Promise((resolve, reject) => {
       quoteModel.findOneRandom((err, quote) => {
-        if(!err){
-          resolve(quote);
-        } else {
-          reject(err);
-        }
+        !err ? resolve(quote) : reject(err);
       })
     });
   };
