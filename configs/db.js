@@ -9,7 +9,6 @@ class Database {
     _connect(){
         mongoose.connect( db_url, {
             useNewUrlParser: true,
-            reconnectTries : Number.MAX_VALUE,
             autoReconnect : true
         })
         .then(() => console.log("Database connected!"))
