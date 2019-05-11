@@ -6,7 +6,7 @@ let Quote = require('../models/quote.model');
 router.get('/', function(req, res) {
   res.send(`
     <h1>Quote API</h1>
-    <p>Danh ngôn Tiếng Việt</p>
+    <p>Trích hay tiếng Việt</p>
   `);
 });
 

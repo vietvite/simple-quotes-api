@@ -8,9 +8,6 @@ let quoteSchema = new mongoose.Schema({
 quoteSchema.plugin(random);
 
 class quoteClass {
-  constructor(quote) {
-    this.quote = quote;
-  }
   getQuote() {
     return new Promise((resolve, reject) => {
       quoteModel.findOneRandom((err, quote) => {
@@ -18,10 +15,6 @@ class quoteClass {
       })
     });
   };
-  async addQuote() {
-    let newQuote = new quoteModel(this.quote);
-    return await newQuote.save();
-  }
 }
 
 let modelName = 'Quote';
