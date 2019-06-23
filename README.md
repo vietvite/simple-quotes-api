@@ -1,8 +1,8 @@
 # Quotes API
 
 ### Install
-+ Add link connect mongoDB to `.env` file like `.env.example`
++ Remane `.env.example` to `.env` and add your database link
 + Run `npm install` to install dependencies
 + Run `npm start` to start or `npm run dev` for development
 
-Demo app: https://my-quotes-api.herokuapp.com/quote
+Demo app: https://simple-quotes.herokuapp.com/quote
