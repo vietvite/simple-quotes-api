@@ -37,9 +37,16 @@ function remove(model) {
   };
 }
 
+function randomOne(model) {
+  return (req, res) => {
+    model.findOneRandom(callbackRes(res));
+  };
+}
+
 module.exports = {
   create,
   read,
   update,
   remove,
+  randomOne,
 };
