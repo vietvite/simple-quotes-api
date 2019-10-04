@@ -13,4 +13,9 @@ router.get('/', (req, res) => {
 // GET quote
 router.get('/quote', randomOne(quoteModel));
 
+router.use('/api', require('../api'));
+
+// CRUD quote
+
+
 module.exports = router;

@@ -9,6 +9,8 @@ function successRes(res, data = {}, statusCode = 200) {
 
 function callbackRes(res, errMsg = 'failed operation') {
   return (err, data) => {
+    console.log({ dataCallbackRes: data });
+
     if (err) return errorRes(res, err, errMsg);
 
     return successRes(res, data);
