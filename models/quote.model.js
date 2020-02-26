@@ -1,6 +1,5 @@
 let mongoose = require('mongoose');
 let random = require('mongoose-simple-random');
-let quoteLog = require('./quoteLog.model');
 
 let quoteSchema = new mongoose.Schema({
     quote: String,
@@ -15,7 +14,6 @@ class quoteClass {
         if(!err) {
           resolve(quote);
         } else {
-          quoteLog.saveLog(err.toString());
           reject('Cannot get quote. Seem like something get wrong');
         }
       })
