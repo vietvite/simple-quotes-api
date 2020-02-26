@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 require('dotenv').config();
-const db_url = process.env.DB_LOCALHOST || process.env.DB_mLab_URL;
+const db_url = process.env.NODE_ENV === 'develop' ? process.env.DB_LOCALHOST : process.env.DB_mLab_URL;
 
 class Database {
     constructor() {

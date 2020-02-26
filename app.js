@@ -22,9 +22,9 @@ app.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api', require('./api'));
-app.all('/', function (req, res) {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
-});
+// app.all('/', function (req, res) {
+//   res.sendFile(path.join(__dirname + '/client/build/index.html'))
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,7 +39,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(err.message);
 });
 
 module.exports = app;

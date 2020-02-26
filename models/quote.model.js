@@ -10,9 +10,13 @@ quoteSchema.plugin(random);
 class quoteClass {
   static getQuote() {
     return new Promise((resolve, reject) => {
-      quoteModel.findOneRandom((err, quote) => {
+      quoteModel.findOneRandom((err, result) => {
         if(!err) {
-          resolve(quote);
+          resolve({
+            quote: result.quote,
+            author: result.author,
+            id: result._id
+          });
         } else {
           reject('Cannot get quote. Seem like something get wrong');
         }
