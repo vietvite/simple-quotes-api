@@ -2,14 +2,6 @@ var express = require('express');
 var router = express.Router();
 let Quote = require('../models/quote.model');
 
-/* GET home page. */
-router.get('/', function (req, res) {
-  res.send(`
-    <h1>Quote API</h1>
-    <p>Trích hay tiếng Việt</p>
-  `);
-});
-
 // GET quote
 router.get('/quote', (req, res) => {
   Quote.getQuote().then(rs => {
