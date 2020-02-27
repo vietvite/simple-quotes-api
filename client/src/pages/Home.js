@@ -5,8 +5,8 @@ function App() {
   const [ author, setAuthor ] = useState('')
   
   useEffect(() => {
-    fetch('https://simple-quotes.herokuapp.com/api/quote')
-    // fetch('/api/quote')
+    // fetch('https://simple-quotes.herokuapp.com/api/quote')
+    fetch('/api/quote')
       .then(res => {
         return res.json()
       })
