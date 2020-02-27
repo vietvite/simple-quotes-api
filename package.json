@@ -7,8 +7,10 @@
   },
   "private": true,
   "scripts": {
-    "client:build": "cd ./client && yarn install && yarn build",
-    "start": "yarn client:build && node ./bin/www",
+    "client:install": "yarn --cwd './client' install",
+    "client:build": "yarn --cwd './client' build",
+    "server:install": "yarn install",
+    "start": "yarn client:install && yarn client:build && yarn server:install && node ./bin/www",
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
